@@ -30,7 +30,7 @@ export function Button({ icon, title, type = 'PRIMARY', ...rest }: Props) {
   }
 
   return (
-    <Container type={type} {...rest}>
+    <Container activeOpacity={0.7} type={type} {...rest}>
       {renderIcon()}
       <Title type={type}>{title}</Title>
     </Container>

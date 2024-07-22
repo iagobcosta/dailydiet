@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { ArrowUpRight } from 'phosphor-react-native'
+import { TouchableOpacity } from 'react-native';
 
 export type PercentTypeStyleProps = 'up' | 'down';
 
@@ -7,7 +8,7 @@ type Props = {
   type: PercentTypeStyleProps
 }
 
-export const Container = styled.View <Props>`
+export const Container = styled(TouchableOpacity) <Props>`
   flex: 1;
 
   min-height: 102px;
@@ -17,7 +18,7 @@ export const Container = styled.View <Props>`
   border-radius: 8px;
   flex-direction: row;
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 `;
 
 export const Content = styled.View`

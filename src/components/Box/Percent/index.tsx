@@ -1,4 +1,4 @@
-
+import { TouchableOpacityProps } from 'react-native';
 import { 
   Container, 
   Content, 
@@ -9,16 +9,16 @@ import {
   Icon
 } from './styles';
 
-type Props = {
+type Props = TouchableOpacityProps & {
   type?: PercentTypeStyleProps;
   percent: string;
   description: string;
 }
 
-export const BoxPercent = ({ type = 'up', percent, description }: Props) => {
+export const BoxPercent = ({ type = 'up', percent, description, ...rest }: Props) => {
   return (
     <>
-      <Container type={type}>
+      <Container activeOpacity={0.7} {...rest} type={type}>
         <Content>
           <Percent>{percent}%</Percent>
           <Description>{description}</Description>
