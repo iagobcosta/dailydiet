@@ -14,7 +14,7 @@ export const Container = styled(TouchableOpacity) <Props>`
   min-height: 102px;
   max-height: 102px;
 
-  background-color: ${({ theme, type }) => type === 'up' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
+  background-color: ${({ theme, type }) => type === 'up' ? theme.colors.green[500] : theme.colors.red[500]};
   border-radius: 8px;
   flex-direction: row;
   margin-top: 25px;
@@ -29,15 +29,15 @@ export const Content = styled.View`
 `;
 
 export const Percent = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXXL}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']}px;
 `;
 
 export const Description = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  font-family: ${({ theme }) => theme.fontFamily.regular};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
 `
 
 export const ContainerIcon = styled.View`
@@ -47,5 +47,5 @@ export const ContainerIcon = styled.View`
 
 export const Icon = styled(ArrowUpRight).attrs<Props>(({ theme, type }) => ({
   size: 24,
-  color: type === 'up' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+  color: type === 'up' ? theme.colors.green[500] : theme.colors.red[500]
 }))``

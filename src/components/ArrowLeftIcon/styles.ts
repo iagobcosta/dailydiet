@@ -8,7 +8,7 @@ export const Container = styled(TouchableOpacity)`
 
 export const ArrowLeftCustom = styled(ArrowLeft).attrs(({ theme }) => ({
   size: 24,
-  color: theme.COLORS.GRAY_200,
+  color: theme.colors.gray[200],
   weight: 'regular'
 }))`
 `;

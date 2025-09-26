@@ -1,38 +1,23 @@
 import { TouchableOpacityProps } from 'react-native';
+import { IconProps } from 'phosphor-react-native';
 import { 
   Container,
   Title,
   ButtonTypeStyleProps,
-  PlusIcon,
-  PencilSimpleLineIcon,
-  TrashIcon
 } from './styles';
 
-export type ButtonIconProps = 'PlusIcon' | 'PencilSimpleLineIcon' | 'TrashIcon';
-
 type Props = TouchableOpacityProps & {
-  icon?: ButtonIconProps;
+  icon?: React.ComponentType<IconProps>;
   title: string;
   type?: ButtonTypeStyleProps;
+  variant?: 'primary' | 'outline';
 }
 
-export function Button({ icon, title, type = 'PRIMARY', ...rest }: Props) {
-
-  function renderIcon() {
-    switch (icon) {
-      case 'PlusIcon':
-        return <PlusIcon type={type} />
-      case 'PencilSimpleLineIcon':
-        return <PencilSimpleLineIcon type={type} />
-      case 'TrashIcon':
-        return <TrashIcon type={type} />
-    }
-  }
-
+export function Button({ icon: Icon, title, type = 'PRIMARY', variant = 'primary', ...rest }: Props) {
   return (
-    <Container activeOpacity={0.7} type={type} {...rest}>
-      {renderIcon()}
-      <Title type={type}>{title}</Title>
+    <Container activeOpacity={0.7} type={type} variant={variant} {...rest}>
+      {Icon && <Icon size={20} color={variant === 'primary' ? '#FFFFFF' : '#1B1D1E'} />}
+      <Title type={type} variant={variant}>{title}</Title>
     </Container>
   );
 }

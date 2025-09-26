@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const Container = styled(SafeAreaView)`
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme }) => theme.colors.green[500]};
 `;
 
 export const ContentHeader = styled.View`
@@ -20,20 +20,20 @@ export const ContentHeader = styled.View`
 `;
 
 export const Percent = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXXL}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']}px;
 `;
 
 export const Description = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  font-family: ${({ theme }) => theme.fontFamily.regular};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
 `;
 
 export const Icon = styled(ArrowLeft).attrs<Props>(({ theme, type }) => ({
   size: 24,
-  color: type === 'up' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+  color: type === 'up' ? theme.colors.green[500] : theme.colors.red[500]
 }))`
   margin: 20px 20px;
 `;
@@ -45,16 +45,16 @@ export const Content = styled.View`
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  background-color: ${({ theme }) => theme.colors.gray[700]};
 
   align-items: center;
   padding: 20px;
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
   margin-bottom: 20px;
 `;
 

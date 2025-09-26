@@ -16,5 +16,5 @@ export const Logo = styled.Image`
 
 export const Avatar = styled(UserCircle).attrs(({ theme }) => ({
   size: 40,
-  color: theme.COLORS.GRAY_100
+  color: theme.colors.gray[100]
 }))``

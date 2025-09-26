@@ -4,48 +4,51 @@ import { Plus, PencilSimpleLine, Trash } from 'phosphor-react-native'
 
 export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 
-type Props = {
-  type: ButtonTypeStyleProps
+type ContainerProps = {
+  type: ButtonTypeStyleProps;
+  variant: 'primary' | 'outline';
 }
 
-export const Container = styled(TouchableOpacity)<Props>`
-  flex: 1;
+type TitleProps = {
+  type: ButtonTypeStyleProps;
+  variant: 'primary' | 'outline';
+}
 
+export const Container = styled(TouchableOpacity)<ContainerProps>`
+  flex: 1;
   min-height: 50px;
   max-height: 50px;
-
-  background-color: ${({ theme, type }) => type === 'PRIMARY' ? theme.COLORS.GRAY_200 : theme.COLORS.GRAY_700};
-
-  border: ${({ theme, type }) => type === 'SECONDARY' ? `1px solid ${theme.COLORS.GRAY_200}` : 'none'};
-
+  background-color: ${({ theme, variant }) => 
+    variant === 'primary' ? theme.colors.gray[200] : 'transparent'};
+  border: ${({ theme, variant }) => 
+    variant === 'outline' ? `1px solid ${theme.colors.gray[200]}` : 'none'};
   border-radius: 6px;
-
   justify-content: center;
   align-items: center;
   flex-direction: row;
   margin: 10px 0;
   gap: 8px;
-`
-
-export const Title = styled.Text <Props>`
-  ${({ theme, type }) => css`
-    font-size: ${theme.FONT_SIZE.MD}px;
-    color: ${ type === 'PRIMARY' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100};
-    font-family: ${theme.FONT_FAMILY.BOLD};
-  `}  
 `;
 
-export const PencilSimpleLineIcon = styled(PencilSimpleLine).attrs<Props>(({ theme, type }) => ({
+export const Title = styled.Text<TitleProps>`
+  ${({ theme, variant }) => css`
+    font-size: ${theme.fontSizes.md}px;
+    color: ${variant === 'primary' ? theme.colors.white : theme.colors.gray[100]};
+    font-family: ${theme.fontFamily.bold};
+  `}
+`;
+
+export const PencilSimpleLineIcon = styled(PencilSimpleLine).attrs<ContainerProps>(({ theme, type }) => ({
   size: 18,
-  color: type === 'PRIMARY' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100
+  color: type === 'PRIMARY' ? theme.colors.white : theme.colors.gray[100]
 }))``
 
-export const TrashIcon = styled(Trash).attrs<Props>(({ theme, type }) => ({
+export const TrashIcon = styled(Trash).attrs<ContainerProps>(({ theme, type }) => ({
   size: 18,
-  color: type === 'PRIMARY' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100
+  color: type === 'PRIMARY' ? theme.colors.white : theme.colors.gray[100]
 }))``
 
-export const PlusIcon = styled(Plus).attrs<Props>(({ theme, type }) => ({
+export const PlusIcon = styled(Plus).attrs<ContainerProps>(({ theme, type }) => ({
   size: 18,
-  color: type === 'PRIMARY' ? theme.COLORS.WHITE : theme.COLORS.GRAY_100
+  color: type === 'PRIMARY' ? theme.colors.white : theme.colors.gray[100]
 }))``

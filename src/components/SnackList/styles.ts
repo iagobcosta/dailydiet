@@ -12,9 +12,9 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xl}px;
   margin: 20px 0 10px;
 `;
 
@@ -22,7 +22,7 @@ export const Card = styled(TouchableOpacity)`
 
   flex-direction: row;
 
-  border: 1px solid ${({ theme }) => theme.COLORS.GRAY_500};  
+  border: 1px solid ${({ theme }) => theme.colors.gray[500]};  
   border-radius: 6px;
 
   padding: 14px 16px 14px 12px;
@@ -32,13 +32,13 @@ export const Card = styled(TouchableOpacity)`
 `;
 
 export const Hour = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes.sm}px;
 `;
 
 export const Divider = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_400};
+  color: ${({ theme }) => theme.colors.gray[400]};
   margin: 0 8px;
 `;
 
@@ -48,9 +48,9 @@ export const Text = styled.Text.attrs(({ theme }) => ({
 }))`
   flex: 1;
   padding-right: 20px;
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  font-family: ${({ theme }) => theme.fontFamily.regular};
+  font-size: ${({ theme }) => theme.fontSizes.lg}px;
 `;
 
 export const Circle = styled.View <Props>`
@@ -58,5 +58,5 @@ export const Circle = styled.View <Props>`
   height: 14px;
 
   border-radius: 7px;
-  background-color: ${({ theme, type }) => type === 'up' ? theme.COLORS.GREEN_MID : theme.COLORS.RED_MID};
+  background-color: ${({ theme, type }) => type === 'up' ? theme.colors.green[500] : theme.colors.red[500]};
 `;

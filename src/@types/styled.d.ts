@@ -1,8 +1,11 @@
 import 'styled-components/native';
-import theme from '../theme';
+import { theme } from '../theme';
 
 declare module 'styled-components/native' {
-  type ThemeType = typeof theme;
-
-  export interface DefaultTheme extends ThemeType { }
+  export interface DefaultTheme {
+    colors: typeof theme.colors;
+    fontFamily: typeof theme.fontFamily;
+    fontSizes: typeof theme.fontSizes;
+    fontWeights: typeof theme.fontWeights;
+  }
 }

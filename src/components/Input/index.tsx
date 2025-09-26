@@ -8,24 +8,22 @@ import { useTheme } from 'styled-components/native';
 import { useState } from 'react';
 
 type Props = TextInputProps & {
-  title: string
-  multiline?: boolean
-}
+  title?: string;
+  multiline?: boolean;
+};
 
 export function Input({ title, multiline = false, ...rest }: Props) {
-
-  const { COLORS } = useTheme();
-
+  const { colors } = useTheme();
   const [isFocus, setIsFocus] = useState(false);
 
   return (
     <Container>
-      <Title>{title}</Title>
+      {title && <Title>{title}</Title>}
       <InputStyle
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         type={isFocus ? 'Active' : 'Default'}
-        cursorColor={COLORS.GRAY_100}
+        cursorColor={colors.gray[100]}
         multiline={multiline}
         {...rest}
       />

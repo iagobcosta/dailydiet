@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const Container = styled(SafeAreaView)<Props>`
-  background-color: ${({ theme, type }) => type === 'up' ? theme.COLORS.GREEN_LIGHT : type === 'down' ? theme.COLORS.RED_LIGHT : theme.COLORS.GRAY_500};
+  background-color: ${({ theme, type }) => type === 'up' ? theme.colors.green[500] : type === 'down' ? theme.colors.red[500] : theme.colors.gray[500]};
 `;
 
 export const ContentHeader = styled.View`
@@ -23,9 +23,9 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes.lg}px;
 `;
 
 export const Content = styled.View`
@@ -33,6 +33,6 @@ export const Content = styled.View`
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
+  background-color: ${({ theme }) => theme.colors.gray[700]};
   padding: 20px;
 `;

@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const Container = styled.View<Props>`
-  background-color: ${({ theme, type }) => type === 'up' ? theme.COLORS.GREEN_LIGHT : type === 'down' ? theme.COLORS.RED_LIGHT : theme.COLORS.GRAY_600};
+  background-color: ${({ theme, type }) => type === 'up' ? theme.colors.green[500] : type === 'down' ? theme.colors.red[500] : theme.colors.gray[600]};
   border-radius: 8px;
   align-items: center;
   justify-content: center;
@@ -17,14 +17,14 @@ export const Container = styled.View<Props>`
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
+  color: ${({ theme }) => theme.colors.gray[100]};
+  font-family: ${({ theme }) => theme.fontFamily.bold};
+  font-size: ${({ theme }) => theme.fontSizes['2xl']}px;
 `;
 
 export const Description = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.colors.gray[200]};
+  font-family: ${({ theme }) => theme.fontFamily.regular};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
   text-align: center;
 `;

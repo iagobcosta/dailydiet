@@ -1,4 +1,7 @@
-import { TouchableOpacityProps, FlatList } from 'react-native'
+import { TouchableOpacityProps } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { AppStackParamList } from '../../routes/app.routes'
 import {
   Container,
   Title,
@@ -10,35 +13,42 @@ import {
   CircleTypeStyleProps
 } from './styles'
 
-type SnackProps = {
-  id: number
+type MealProps = {
+  id: string
   hour: string
   name: string
   description: string
   withinDiet: boolean
 }
 
-type SnackListProps = {
-  id: number
+type Props = {
   date: Date
-  snack: SnackProps[]
+  meals: MealProps[]
 }
 
-type Props = TouchableOpacityProps & {
-  item: SnackListProps
-}
+type NavigationProps = NativeStackNavigationProp<AppStackParamList>
 
-export function SnackList({ item, ...rest }: Props) {
+export function SnackList({ date, meals }: Props) {
+  const navigation = useNavigation<NavigationProps>();
+
+  function handleMealPress(mealId: string) {
+    navigation.navigate('MealDetails', { id: mealId });
+  }
+
   return (
     <Container>
-      <Title>{item.date.toLocaleDateString('pt-BR',{year:"2-digit",month:"2-digit", day:"2-digit"}).replaceAll('/', '.')}</Title>
+      <Title>{date.toLocaleDateString('pt-BR',{year:"2-digit",month:"2-digit", day:"2-digit"}).replaceAll('/', '.')}</Title>
       {
-        item.snack.map((snack) => (
-          <Card activeOpacity={0.7} {...rest} key={snack.id} >
-            <Hour>{snack.hour}</Hour>
+        meals.map((meal) => (
+          <Card 
+            key={meal.id}
+            activeOpacity={0.7}
+            onPress={() => handleMealPress(meal.id)}
+          >
+            <Hour>{meal.hour}</Hour>
             <Divider>|</Divider>
-            <Text>{snack.name}</Text>
-            <Circle type={snack.withinDiet ? 'up' : 'down'} />
+            <Text>{meal.name}</Text>
+            <Circle type={meal.withinDiet ? 'up' : 'down'} />
           </Card>
         ))
       }

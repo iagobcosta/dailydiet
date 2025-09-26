@@ -5,10 +5,10 @@ import { useTheme } from 'styled-components/native'
 import { AppRoutes } from './app.routes'
 
 export function Routes() {
+  const { colors } = useTheme();
 
-  const { COLORS } = useTheme();
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.GRAY_700 }}>
+    <View style={{ flex: 1, backgroundColor: colors.gray[700] }}>
       <NavigationContainer>
         <AppRoutes />
       </NavigationContainer>
